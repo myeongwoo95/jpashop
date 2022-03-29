@@ -1,6 +1,8 @@
 package jpabook.jpashop.domain;
 
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -12,6 +14,7 @@ import java.util.List;
 @Entity
 @Table(name = "orders")
 @Getter @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Order {
 
     @Id @GeneratedValue
@@ -33,6 +36,10 @@ public class Order {
 
     @Enumerated(EnumType.STRING) // EnumType.ORDINAL 절대 쓰지않는다, 다른 것이 추가되면 순서가 다시 리셋된다.
     private OrderStatus status; //주문상태 [ORDER, CANCEL]
+
+
+
+
 
     //==연관관계 메서드==//
     public void setMember(Member member){
