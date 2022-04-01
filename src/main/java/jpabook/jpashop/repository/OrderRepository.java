@@ -31,7 +31,7 @@ public class OrderRepository {
      * if + isFirstCondition
      * JPQL 쿼리를 문자로 생성하기는 번거롭고, 실수로 인한 버그가 충분히 발생할 수 있다.
      */
-    public List<Order> findAll(OrderSearch orderSearch) {
+    public List<Order> findAllByString(OrderSearch orderSearch) {
 
         //language = JPQL
         String jpql = "select o From Order o join o.member m";
